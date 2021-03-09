@@ -1,0 +1,104 @@
+:root {
+    --color: #4c4c4c;
+    --background: #e8e8e8;
+    --focus: #a37eba;
+    --accent: #e5df88;
+    --font: "Calibri";
+    --title: "broadway";
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--background);
+    font-family: var(--font);
+}
+
+main {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 10px;
+    background: white;
+}
+
+header {
+    height: 130px;
+    background-image: linear-gradient(to right, var(--color) , var(--focus));
+    color: var(--background);
+    background-size: cover;
+    background-position: center;
+    font-family: var(--title);
+    letter-spacing: 2px;
+
+}
+
+h1 {
+    font-size: 3em;
+    margin: 0px 40px;
+    padding: 60px 5px;
+    display: table-cell;
+}
+
+h2 {
+    text-align: left;
+    margin: 0;
+    padding-bottom: 3px;
+}
+
+shows {
+    display: flex;
+    flex-wrap: wrap;
+    width: 70%;
+    margin: 0;
+}
+
+.description {
+    background-color: var(--background);
+    height: 850px;
+    width: 23%;
+    display: inline-block;
+    vertical-align: top;
+    margin: 5px;
+}
+
+shows div {
+    margin: 5px;
+    width: 22%;
+    border: var(--background) solid 2px;
+}
+
+img {
+    width: 10vw;
+    height: 10vw;
+    object-fit: cover;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+button {
+    text-align: center;
+    background-color: var(--color);
+    color: var(--background);
+    margin: 10px auto;
+    padding: 5px 20px;
+    border: none;
+    display: block;
+    cursor: pointer;
+    width: 100%;
+    max-width: 150px;
+    box-sizing: border-box;
+    border-radius: 0px;
+    outline: 0;
+    height: 30px;
+}
+
+button:active {
+    background-color: var(--accent);
+    color: black;
+    border-radius: 0px;
+    border: 2px solid black;
+    box-sizing: border-box;
+    max-width: 150px;
+    outline: 0;
+}
