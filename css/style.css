@@ -19,6 +19,7 @@ main {
     margin: 20px auto;
     padding: 10px;
     background: white;
+    display: flex;
 }
 
 header {
@@ -48,22 +49,24 @@ h2 {
 shows {
     display: flex;
     flex-wrap: wrap;
-    width: 70%;
-    margin: 0;
+    width: 75%;
 }
 
 .description {
     background-color: var(--background);
     height: 850px;
-    width: 23%;
-    display: inline-block;
+    width: 25%;
     vertical-align: top;
     margin: 5px;
 }
 
+.description h2{
+    text-align: center;
+}
+
 shows div {
     margin: 5px;
-    width: 22%;
+    width: 23%;
     border: var(--background) solid 2px;
 }
 
