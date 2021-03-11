@@ -64,6 +64,11 @@ shows {
     text-align: center;
 }
 
+#description, #tags {
+    margin: 5px;
+    padding: 5px;
+}
+
 shows div {
     margin: 5px;
     width: 23%;
