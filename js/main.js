@@ -4,7 +4,7 @@ window.addEventListener("load", init);
 const buttons = document.querySelectorAll(".show");
 const description = document.querySelector("#description");
 const tags = document.querySelector("#tags");
-
+const favoriteButtons = document.querySelectorAll(".favorite");
 const shows = [
     {description: "The real life of one of America's foremost founding " +
             "fathers and first Secretary of the Treasury, Alexander Hamilton.",
@@ -38,14 +38,45 @@ const shows = [
             "becomes the Wicked Witch of the West",
         tags: 'Witches, Oz'}
 ];
+let favorites = [];
 
 function init (){
+    if (typeof window.localStorage === "undefined") {
+        console.error('Local storage is not available in your browser');
+        return;
+    }
+
     for (let button of buttons){
         button.addEventListener('click', addHTML)
     }
+
+    //fillFieldsFromLocalStorage();
+    for (let favoriteButton of favoriteButtons ){
+        favoriteButton.addEventListener("click", addToFavorite);
+    }
+
 }
 
 function addHTML(e){
     description.innerText = shows[e.target.dataset.index].description;
     tags.innerText = shows[e.target.dataset.index].tags;
+}
+
+function fillFieldsFromLocalStorage() {
+    if (localStorage.getItem('favorite') !== null) {
+        $favorites.value = localStorage.getItem('favorite');
+    }
+}
+
+function addToFavorite(e){
+    let showDiv = e.target.parentNode;
+    showDiv.classList.add("selected");
+    favorites.push(e.target.dataset.id);
+    console.log(favorites);
+    localStorage.setItem('favorites', favorites);
+}
+
+function deleteFavorite(e) {
+    localStorage.removeItem('favorite');
+    console.log("Deleted something from favorite");
 }

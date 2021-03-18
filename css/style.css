@@ -75,6 +75,11 @@ shows div {
     border: var(--background) solid 2px;
 }
 
+.selected{
+    background: #e5df88 url('./pictures/star.jpg');
+    transform: scale(1.05);
+}
+
 img {
     width: 10vw;
     height: 10vw;
