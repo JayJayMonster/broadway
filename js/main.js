@@ -50,7 +50,7 @@ function init (){
         button.addEventListener('click', addHTML)
     }
 
-    //fillFieldsFromLocalStorage();
+    fillFieldsFromLocalStorage();
     for (let favoriteButton of favoriteButtons ){
         favoriteButton.addEventListener("click", addToFavorite);
     }
@@ -63,8 +63,10 @@ function addHTML(e){
 }
 
 function fillFieldsFromLocalStorage() {
-    if (localStorage.getItem('favorite') !== null) {
-        $favorites.value = localStorage.getItem('favorite');
+    let favorite= localStorage.getItem("favorites");
+
+    if(favorite != undefined) {
+        let storedData = JSON.parse(favorite);
     }
 }
 
@@ -72,8 +74,7 @@ function addToFavorite(e){
     let showDiv = e.target.parentNode;
     showDiv.classList.add("selected");
     favorites.push(e.target.dataset.id);
-    console.log(favorites);
-    localStorage.setItem('favorites', favorites);
+    localStorage.setItem("favorites", JSON.stringify(favorites));
 }
 
 function deleteFavorite(e) {

@@ -76,7 +76,7 @@ shows div {
 }
 
 .selected{
-    background: #e5df88 url(../pictures/star.png);
+    background: #e5df88;
     transform: scale(1.05);
 }
 
