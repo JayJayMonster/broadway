@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @return array
  */
@@ -8,63 +9,73 @@ function getShows()
         [
             "id" => 1,
             "name" => "Hamilton",
-            "music" => "Lin-Manual Miranda",
-            "broadway" => "2015",
+            "img" => "pictures/hamilton.jpg",
+            "favorite" => "Add to favorite",
+            "description" => "Show description",
 
         ],
         [
             "id" => 2,
             "name" => "Aladdin",
-            "music" => "Alan Menken",
-            "broadway" => "2014",
+            "img" => "pictures/aladdin.jpg",
+            "favorite" => "Add to favorite",
+            "description" => "Show description",
         ],
         [
             "id" => 3,
             "name" => "Beetlejuice",
-            "music" => "Eddie Perfect",
-            "broadway" => "2019",
+            "img" => "pictures/beetlejuice.jpg",
+            "favorite" => "Add to favorite",
+            "description" => "Show description",
         ],
         [
             "id" => 4,
             "name" => "Mean Girls",
-            "music" => "Jeff Richmond",
-            "broadway" => "2018",
+            "img" => "pictures/mean_girls.jpg",
+            "favorite" => "Add to favorite",
+            "description" => "Show description",
         ],
         [
             "id" => 5,
             "name" => "Waitress",
-            "music" => "Sara Bareilles",
-            "broadway" => "2016",
+            "img" => "pictures/waitress.jpg",
+            "favorite" => "Add to favorite",
+            "description" => "Show description",
         ],
         [
             "id" => 6,
             "name" => "Kinky Boots",
-            "music" => "Cyndi Lauper",
-            "broadway" => "2013",
+            "img" => "pictures/kinky_boots.jpg",
+            "favorite" => "Add to favorite",
+            "description" => "Show description",
         ],
         [
             "id" => 7,
             "name" => "Les Miserables",
-            "music" => "Claude-Michel Schönberg",
-            "broadway" => "1987",
+            "img" => "pictures/les_miserables.jpg",
+            "favorite" => "Add to favorite",
+            "description" => "Show description",
         ],
         [
             "id" => 8,
             "name" => "Newsies",
-            "music" => "Alan Menken",
-            "broadway" => "2012",
+            "img" => "pictures/newsies.jpg",
+            "favorite" => "Add to favorite",
+            "description" => "Show description",
         ],
         [
             "id" => 9,
             "name" => "Rent",
-            "music" => "Jonathan Larson",
-            "broadway" => "1996",
+            "img" => "pictures/rent.jpg",
+            "favorite" => "Add to favorite",
+            "description" => "Show description",
         ],
         [
             "id" => 10,
             "name" => "Wicked",
-            "music" => "Stephen Schwartz",
-            "broadway" => "2003",
+            "img" => "pictures/wicked.jpg",
+            "favorite" => "Add to favorite",
+            "description" => "Show description",
         ]
     ];
 }
@@ -133,4 +144,5 @@ function getShowDetails($id)
 
     return $tags[$id];
 }
+
 
