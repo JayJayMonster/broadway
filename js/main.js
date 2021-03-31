@@ -8,6 +8,7 @@ let favorites = [];
 let phpURL;
 let showData = [];
 let flickrURL;
+let search;
 
 function init (){
     phpURL = 'webservice/index.php';
@@ -16,13 +17,31 @@ function init (){
         console.error('Local storage is not available in your browser');
         return;
     }
-   flickrApi();
+    //flickrApi();
 }
 
 function flickrApi(){
-    flickrURL = "https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=a63624c60fc61e77fc1c9c315a842dcd&tags=broadway&format=rest&api_sig=19ef4788c1e42079b6c0a8573e4023a1";
-    console.log(flickrURL);
+    search = "broadway";
+    flickrURL = "https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=a22a62c14b27f07771ef92a326d06bd1&tags="+search+"&per_page=10s&format=json&nojsoncallback=1";
+    fetch(flickrURL)
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error(response.statusText);
+            }
+            return response.json();
+        })
+        .then(flickrSuccessHandler)
+        .catch(errors);
+}
 
+function flickrSuccessHandler(data){
+    let photos = data.photos.photo;
+    for(let photo of photos){
+    let url = "http://farm" + photo.farm + ".staticflickr.com/" + photo.server + "/" + photo.id + "_" + photo.secret + ".jpg";
+    let img = document.createElement("img");
+    img.src = url;
+    shows.appendChild(img);
+    }
 }
 
 function getWebserviceItems(){
@@ -49,11 +68,15 @@ function addHTML(data) {
     fillFieldsFromLocalStorage();
 }
 
-function addDescription(e){
-    for(let item of showData){
-        if (item.id == e.target.dataset.index){
-            tags.innerText = item.tags;
-            description.innerText = item.description;
+function fillFieldsFromLocalStorage() {
+    let favorite= localStorage.getItem("favorites");
+    favorite = JSON.parse(favorite);
+
+    if(favorite != undefined) {
+        for (let item of favorite) {
+            favorites.push(item);
+            let div = document.querySelector("[data-id='" + item + "']");
+            div.parentNode.classList.add("selected");
         }
     }
 }
@@ -74,21 +97,13 @@ function createDivItem(itemName, itemImg, itemId){
 
 }
 
-function fillFieldsFromLocalStorage() {
-    let favorite= localStorage.getItem("favorites");
-    favorite = JSON.parse(favorite);
-
-    if(favorite != undefined) {
-        for (let item of favorite) {
-            favorites.push(item);
-            let div = document.querySelector("[data-id='" + item + "']");
-            div.parentNode.classList.add("selected");
+function addDescription(e){
+    for(let item of showData){
+        if (item.id == e.target.dataset.index){
+            tags.innerText = item.tags;
+            description.innerText = item.description;
         }
     }
-}
-
-function errors(){
-    console.log("something went wrong");
 }
 
 function addLocalStorage(e){
@@ -142,4 +157,8 @@ function createDescriptionButton(tagName, id, parent){
     element.innerText = "Show Description";
     parent.appendChild(element);
     element.addEventListener('click', addDescription);
+}
+
+function errors(){
+    console.log("something went wrong");
 }
